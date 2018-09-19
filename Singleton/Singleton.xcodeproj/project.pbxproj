@@ -10,6 +10,8 @@
 		0230ADD221521FF50021ED0C /* Singleton.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0230ADC821521FF50021ED0C /* Singleton.framework */; };
 		0230ADD721521FF50021ED0C /* SingletonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0230ADD621521FF50021ED0C /* SingletonTests.swift */; };
 		0230ADD921521FF50021ED0C /* Singleton.h in Headers */ = {isa = PBXBuildFile; fileRef = 0230ADCB21521FF50021ED0C /* Singleton.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0230ADE3215220A60021ED0C /* SessionState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0230ADE2215220A60021ED0C /* SessionState.swift */; };
+		0230ADE5215226830021ED0C /* SimpleMath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0230ADE4215226830021ED0C /* SimpleMath.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +31,8 @@
 		0230ADD121521FF50021ED0C /* SingletonTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SingletonTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0230ADD621521FF50021ED0C /* SingletonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingletonTests.swift; sourceTree = "<group>"; };
 		0230ADD821521FF50021ED0C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0230ADE2215220A60021ED0C /* SessionState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionState.swift; sourceTree = "<group>"; };
+		0230ADE4215226830021ED0C /* SimpleMath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleMath.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +77,8 @@
 			children = (
 				0230ADCB21521FF50021ED0C /* Singleton.h */,
 				0230ADCC21521FF50021ED0C /* Info.plist */,
+				0230ADE2215220A60021ED0C /* SessionState.swift */,
+				0230ADE4215226830021ED0C /* SimpleMath.swift */,
 			);
 			path = Singleton;
 			sourceTree = "<group>";
@@ -148,6 +154,7 @@
 				TargetAttributes = {
 					0230ADC721521FF50021ED0C = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 0940;
 					};
 					0230ADD021521FF50021ED0C = {
 						CreatedOnToolsVersion = 9.4.1;
@@ -194,6 +201,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0230ADE3215220A60021ED0C /* SessionState.swift in Sources */,
+				0230ADE5215226830021ED0C /* SimpleMath.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -339,6 +348,7 @@
 		0230ADDD21521FF50021ED0C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -356,6 +366,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = bao.doan.test.Singleton;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -364,6 +375,7 @@
 		0230ADDE21521FF50021ED0C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -389,6 +401,7 @@
 		0230ADE021521FF50021ED0C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9BLR7Y699Z;
 				INFOPLIST_FILE = SingletonTests/Info.plist;
@@ -407,6 +420,7 @@
 		0230ADE121521FF50021ED0C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9BLR7Y699Z;
 				INFOPLIST_FILE = SingletonTests/Info.plist;

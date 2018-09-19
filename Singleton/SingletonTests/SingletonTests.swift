@@ -32,5 +32,28 @@ class SingletonTests: XCTestCase {
             // Put the code you want to measure the time of here.
         }
     }
+    func testConcurrentAccess(){
+        let asyncQueue = DispatchQueue(label: "asyncQueue", attributes: .concurrent, target: nil)
+        let expect = expectation(description: "Storing values in SessionState shall succeed")
+        //to wait the async method
+        let MaxIndex = 200
+        for index in 0...MaxIndex{
+            asyncQueue.async {
+                SessionState.shared.set(index, forKey: String(index))
+            }
+        }
+        while SessionState.shared.object(forKey: String(MaxIndex)) as? Int != MaxIndex{
+            
+        }
+        expect.fulfill() // similar to done() in Javascript QUnit
+        waitForExpectations(timeout: 10, handler:  {(error) in
+            XCTAssertNil(error, "Test expectation failed")
+        })
+ 
+    }
+    func testMethod(){
+        let result = SimpleMath.add(a: 10, b: 5)
+        XCTAssert(result == 15,"Do a right calculation")
+    }
     
 }
