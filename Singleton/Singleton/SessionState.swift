@@ -12,7 +12,8 @@ public class SessionState {
     
     private var storage = [String: Any]()
     
-    private let syncQueue = DispatchQueue(label: "serializationQueue")
+   // private let syncQueue = DispatchQueue(label: "serializationQueue")
+    private let asyncQueue = DispatchQueue(label: "asyncQueue", attributes: .concurrent, target: nil)
     
     private init(){}
     
@@ -21,16 +22,16 @@ public class SessionState {
         return instance
     }()
     
-    public func set(_ value: Any, forKey key: String){
-        syncQueue.sync {
-            storage[key] = value
+    public func set<T>(_ value: T?, forKey key: String){
+        asyncQueue.async(flags: .barrier) {
+            self.storage[key] = value
         }
     }
     
-    public func object(forKey key: String) -> Any?{
-        var result: Any?
-        syncQueue.sync {
-            result = storage[key] ?? nil
+    public func object<T>(forKey key: String) -> T?{
+        var result: T?
+        asyncQueue.sync(flags: .barrier)  {
+            result = self.storage[key] as? T ?? nil
         }
         return result
     }
